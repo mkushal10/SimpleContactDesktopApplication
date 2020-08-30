@@ -46,12 +46,12 @@
             this.btnClear = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dvgContactList = new System.Windows.Forms.DataGridView();
             this.lblSearch = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.lblClose = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dvgContactList)).BeginInit();
             this.SuspendLayout();
             // 
             // picLogo
@@ -80,16 +80,19 @@
             this.txtID.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtID.Location = new System.Drawing.Point(183, 214);
             this.txtID.Name = "txtID";
+            this.txtID.ReadOnly = true;
             this.txtID.Size = new System.Drawing.Size(151, 29);
             this.txtID.TabIndex = 2;
             // 
             // txtFirstName
             // 
             this.txtFirstName.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFirstName.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.txtFirstName.Location = new System.Drawing.Point(183, 252);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(151, 29);
             this.txtFirstName.TabIndex = 4;
+            this.txtFirstName.Text = "Kushal";
             // 
             // lblFirstName
             // 
@@ -105,10 +108,12 @@
             // txtLastName
             // 
             this.txtLastName.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLastName.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.txtLastName.Location = new System.Drawing.Point(183, 290);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(151, 29);
             this.txtLastName.TabIndex = 6;
+            this.txtLastName.Text = "Neupane";
             // 
             // lblLastName
             // 
@@ -124,10 +129,12 @@
             // txtMobileNumber
             // 
             this.txtMobileNumber.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMobileNumber.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.txtMobileNumber.Location = new System.Drawing.Point(183, 328);
             this.txtMobileNumber.Name = "txtMobileNumber";
             this.txtMobileNumber.Size = new System.Drawing.Size(151, 29);
             this.txtMobileNumber.TabIndex = 8;
+            this.txtMobileNumber.Text = "9845098067";
             // 
             // lblMobileNumber
             // 
@@ -143,11 +150,13 @@
             // txtAddress
             // 
             this.txtAddress.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAddress.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.txtAddress.Location = new System.Drawing.Point(183, 366);
             this.txtAddress.Multiline = true;
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(151, 72);
             this.txtAddress.TabIndex = 10;
+            this.txtAddress.Text = "Pokhara-16, Kaski";
             // 
             // lblAddress
             // 
@@ -196,6 +205,7 @@
             this.btnAdd.TabIndex = 13;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnClear
             // 
@@ -209,6 +219,7 @@
             this.btnClear.TabIndex = 14;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnUpdate
             // 
@@ -236,13 +247,13 @@
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = false;
             // 
-            // dataGridView1
+            // dvgContactList
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(340, 252);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(448, 223);
-            this.dataGridView1.TabIndex = 17;
+            this.dvgContactList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dvgContactList.Location = new System.Drawing.Point(340, 252);
+            this.dvgContactList.Name = "dvgContactList";
+            this.dvgContactList.Size = new System.Drawing.Size(448, 223);
+            this.dvgContactList.TabIndex = 17;
             // 
             // lblSearch
             // 
@@ -285,7 +296,7 @@
             this.Controls.Add(this.lblClose);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.lblSearch);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dvgContactList);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnClear);
@@ -307,8 +318,9 @@
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Contact Management System";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dvgContactList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -333,7 +345,7 @@
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dvgContactList;
         private System.Windows.Forms.Label lblSearch;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Label lblClose;

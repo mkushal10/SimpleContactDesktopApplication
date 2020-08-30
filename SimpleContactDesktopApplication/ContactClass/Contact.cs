@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SimpleContactDesktopApplication.ContactClasses
+namespace SimpleContactDesktopApplication.ContactClass
 {
     class Contact
     {
@@ -34,14 +34,14 @@ namespace SimpleContactDesktopApplication.ContactClasses
                 //SQL Query
                 string sql = "SELECT * FROM tb_Contact";
                 //Creating SQL command using sql and conn
-                SqlCommand cmd = new SqlCommand(sql,conn);
+                SqlCommand cmd = new SqlCommand(sql, conn);
                 //Creating SQL DataAdapter using cmd
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 //Opening Database Connection
                 conn.Open();
                 adapter.Fill(dt);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
             }
@@ -66,7 +66,7 @@ namespace SimpleContactDesktopApplication.ContactClasses
                 //Creating SQL command using sql and conn
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 //Create Parameters to add data
-                cmd.Parameters.AddWithValue("@FirstName",c.FirstName);
+                cmd.Parameters.AddWithValue("@FirstName", c.FirstName);
                 cmd.Parameters.AddWithValue("@LastName", c.LastName);
                 cmd.Parameters.AddWithValue("@MobileNumber", c.MobileNumber);
                 cmd.Parameters.AddWithValue("@Address", c.Address);
@@ -75,16 +75,16 @@ namespace SimpleContactDesktopApplication.ContactClasses
                 conn.Open();
                 int rows = cmd.ExecuteNonQuery();
                 //If the query runs successfully then the value of rows will be greater than zero else its value will be zero
-                if (rows>0)
+                if (rows > 0)
                 {
                     isSuccess = true;
                 }
                 else
                 {
-                    isSuccess=false;
+                    isSuccess = false;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
             }
@@ -130,7 +130,7 @@ namespace SimpleContactDesktopApplication.ContactClasses
                     isSuccess = false;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
             }
@@ -156,7 +156,6 @@ namespace SimpleContactDesktopApplication.ContactClasses
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@ID", c.ID);
                 conn.Open();
-
                 int rows = cmd.ExecuteNonQuery();
                 //If the query runs successfully then the value of rows will be greater than zero else its value will be zero
                 if (rows > 0)
@@ -168,7 +167,7 @@ namespace SimpleContactDesktopApplication.ContactClasses
                     isSuccess = false;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
             }
